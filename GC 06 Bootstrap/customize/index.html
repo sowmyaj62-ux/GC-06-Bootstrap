@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Sidebar App</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        /* Sidebar (hidden initially) */
+        #sidebar {
+            width: 25%;
+            height: 100px;
+            background-color: gray;
+            position: fixed;
+            top: 20px;
+            left: -30%;   /* hidden initially */
+            transition: 0.4s ease;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Button styling */
+        #menuBtn {
+            background-color: green;
+            color: white;
+            border-radius: 25px;
+            height: 25px;
+            border: none;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+    <!-- Button Center of DOM -->
+    <button id="menuBtn">Click me for Menu bar</button>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h6 class="text-white">Menu</h6>
+        <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Home</a></li>
+            <li><a href="#" class="text-white">About</a></li>
+            <li><a href="#" class="text-white">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let btn = document.getElementById("menuBtn");
+        let sidebar = document.getElementById("sidebar");
+        let isOpen = false;
+
+        btn.addEventListener("click", function () {
+            if (!isOpen) {
+                sidebar.style.left = "20px";   // show sidebar
+                btn.style.backgroundColor = "red"; // change btn color
+                isOpen = true;
+            } else {
+                sidebar.style.left = "-30%";   // hide sidebar
+                btn.style.backgroundColor = "green"; // revert button color
+                isOpen = false;
+            }
+        });
+    </script>
+
+</body>
+</html>
